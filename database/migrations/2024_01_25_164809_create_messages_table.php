@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('votes', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('value');
+            $table->string('email', 255)->nullable(false);
+            $table->string('first_name', 255)->nullable(false);
+            $table->string('last_name', 255)->nullable(false);
+            $table->Text('text')->nullable(false);
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('votes');
+        Schema::dropIfExists('messages');
     }
 };

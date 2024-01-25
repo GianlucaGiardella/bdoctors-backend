@@ -1,20 +1,12 @@
-import "./bootstrap";
+import './bootstrap';
+import Alpine from 'alpinejs';
+import '~resources/scss/app.scss';
+import.meta.glob([
+    '../img/**'
+]);
 
-import "~resources/scss/app.scss";
+import * as bootstrap from 'bootstrap';
 
-import.meta.glob(["../img/**"]);
+window.Alpine = Alpine;
 
-import * as bootstrap from "bootstrap";
-
-const confirmDelete = document.querySelector("#confirm-delete");
-
-if (confirmDelete) {
-    document.querySelectorAll(".js-delete").forEach(button => {
-        button.addEventListener("click", function () {
-            confirmDelete.action = confirmDelete.dataset.template.replace(
-                "*****",
-                this.dataset.id
-            );
-        });
-    });
-}
+Alpine.start();
