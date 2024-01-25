@@ -18,8 +18,8 @@ class Review extends Model
         'text',
     ];
 
-    public function vote()
+    public function profile()
     {
-        return $this->hasOne(Vote::class);
+        return $this->belongsTo(Profile::class);
     }
 }
