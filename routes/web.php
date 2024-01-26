@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\ProfileController;
-use App\Models\Profile;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\ProfileController as ControllersProfileController;
+// il profile registrato su laravel viene rinominato controllerprofilecontroller
+// il profilo creato dal dottore invece profilecontroller
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,30 +17,26 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard', [ProfileController::class, 'show'])->middleware('auth')->name('profiles.show');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/dashboard', [ProfileController::class, 'show'])->middleware('auth')->name('profile_show');
-
+// middleware per autenticati profilo dottore
 Route::middleware('auth')
-    ->prefix('/admin')
+    ->prefix('/admin')->name('admin.')
     ->group(function() {
-        Route::resource('profile', ProfileController::class);
+        Route::resource('admin/profiles', ProfileController::class);
+        Route::resource('profiles', ProfileController::class)->parameters(['profiles'=>'project:slug']);
 
     });
-Route::middleware('auth')
-    ->prefix('/profile') // * tutti gli url hanno il prefisso "/profile"
-    ->name('profile.') // * tutti i nomi delle rotte hanno il prefisso "profile".
-    ->group(function () {
-        Route::get('/', [ProfileController::class, 'edit'])->name('edit');
-        Route::patch('/', [ProfileController::class, 'update'])->name('update');
-        Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
-    });
+// middleware per autenticati profilo user
+Route::middleware(['auth'])->prefix('/profile')->name('profile.')->group(function () {
+        
+        Route::get('/', [ControllersProfileController::class, 'edit'])->name('edit');
+        Route::patch('/', [ControllersProfileController::class, 'update'])->name('update');
+        Route::delete('/', [ControllersProfileController::class, 'destroy'])->name('destroy');
+});
+
 require __DIR__.'/auth.php';
 
