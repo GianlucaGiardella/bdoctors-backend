@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger('profile_id');
+            $table->foreign('profile_id')->references('id')->on('profiles'); 
             $table->string('first_name', 255)->nullable(false);
             $table->string('last_name', 255)->nullable(false);
             $table->Text('text')->nullable(false);

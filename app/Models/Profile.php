@@ -27,7 +27,6 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
-
     public function specializations()
     {
         return $this->belongsToMany(Specialization::class);
@@ -46,6 +45,9 @@ class Profile extends Model
     {
         return $this->belongsToMany(Sponsorship::class);
     }
-    
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 
 }

@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function doctor()
+    public function profile()
     {
         return $this->hasOne(Profile::class);
     }

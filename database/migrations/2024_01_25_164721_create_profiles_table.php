@@ -11,7 +11,9 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('user_id')
+            ->constrained()
+            ->cascadeOnDelete();
             $table->string('address',255)->nullable(false);
             $table->string('curriculum',255)->nullable();
             $table->string('photo',255)->nullable();
@@ -19,7 +21,7 @@ return new class extends Migration
             $table->Text('services')->nullable();
             $table->boolean('visible')->nullable()->unsigned();
             
-
+            $table->timestamps();
 
 
 

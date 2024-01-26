@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profile_id')
+            ->constrained()
+            ->cascadeOnDelete(); 
+          
             $table->string('email', 255)->nullable(false);
             $table->string('first_name', 255)->nullable(false);
             $table->string('last_name', 255)->nullable(false);
