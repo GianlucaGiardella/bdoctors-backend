@@ -19,6 +19,14 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             ProfileSeeder::class,
+            SpecializationSeeder::class,
+            MessageSeeder::class,
+            ReviewSeeder::class,
+            VoteSeeder::class,
+            ProfileVoteSeeder::class,
+            SponsorshipSeeder::class,
+            ProfileSpecializationSeeder::class,
+            ProfileSponsorshipSeeder::class,
         ]);
     }
 }

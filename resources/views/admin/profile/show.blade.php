@@ -49,7 +49,14 @@
 						</div> --}}
 						</div>
 					</section>
+				@else
+				<div class="container">
+					<h1 class="text-center">Non hai registrato il tuo profilo dottore</h1>
+					<a href="{{ route('admin.profile.create') }}" class="btn btn-primary w-100">Crea Progetto</a>
+
+				</div>
 				@endif
+
 			</div>
 		</div>
 	@endsection

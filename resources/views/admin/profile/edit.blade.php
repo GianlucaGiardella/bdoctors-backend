@@ -17,7 +17,7 @@
 		{{-- validazione errori --}}
 
 		{{-- per inserire immagini mettiamo l'enctype enctype="multipart/form-data" --}}
-		<form action="{{ route('profile.update', $profile) }}" method="POST" enctype="multipart/form-data" class="form-input-image">
+		<form action="{{ route('admin.profile.update', $profile) }}" method="POST" enctype="multipart/form-data" class="form-input-image">
 			@csrf
 			@method('PUT')
 			<div class="mb-3">

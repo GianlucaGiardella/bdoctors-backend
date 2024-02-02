@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\ProfileController as ControllersProfileController;
+use App\Providers\RouteServiceProvider;
 // il profile registrato su laravel viene rinominato controllerprofilecontroller
 // il profilo creato dal dottore invece profilecontroller
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(RouteServiceProvider::HOME);
 });
 Route::get('/dashboard', [ProfileController::class, 'show'])->middleware('auth')->name('profiles.show');
 
