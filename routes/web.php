@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 Route::get('/dashboard', [ProfileController::class, 'show'])->middleware('auth')->name('profiles.show');
 
-// middleware per autenticati profilo dottore
+// middleware per autenticati profilo DOTTORE
 Route::middleware('auth')
     ->prefix('/admin')->name('admin.')
     ->group(function() {
@@ -30,7 +30,7 @@ Route::middleware('auth')
 
 
     });
-// middleware per autenticati profilo user
+// middleware per autenticati profilo user registrato
 Route::middleware(['auth'])->prefix('/profile')->name('profile.')->group(function () {
         
         Route::get('/', [ControllersProfileController::class, 'edit'])->name('edit');
