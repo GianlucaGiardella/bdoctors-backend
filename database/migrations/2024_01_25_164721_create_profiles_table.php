@@ -14,13 +14,13 @@ return new class extends Migration
             $table->foreignId('user_id')
             ->constrained()
             ->cascadeOnDelete();
-            $table->string('name', 150)->unique();
+            $table->string('name', 150)->nullable();
             $table->string('surname',255)->nullable();
             $table->string('address',255)->nullable(false);
             $table->string('curriculum',255)->nullable();
             $table->string('photo',255)->nullable();
             $table->string('phone',20)->nullable();
-            $table->Text('services')->nullable();
+            $table->string('services')->nullable();
             $table->boolean('visible')->nullable()->unsigned();
             
             $table->timestamps();

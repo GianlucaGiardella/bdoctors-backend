@@ -26,7 +26,7 @@ class UpdateProfileRequest extends FormRequest
         return [
             'user_id' => 'nullable|exists:users,id',
             'address' => 'max:200|string',
-            'services' => 'nullable|string',
+            'services' => 'max:200|string',
             'curriculum' => 'nullable|string',
             'photo' => 'image|nullable|mimes:jpg,png,jpeg',
             'visible' => 'boolean',

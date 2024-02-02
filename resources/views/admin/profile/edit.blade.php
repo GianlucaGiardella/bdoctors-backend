@@ -24,6 +24,16 @@
 				<label for="services" class="form-label">Servizi</label>
 				<textarea class="form-control" id="services" name="services">{{ old('services', $profile->services) }}</textarea>
 			</div>
+			<div class="mb-3">
+				<p>Specializzato in:</p>
+				@foreach ($specializations as $specialization)
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="{{ $specialization->id }}" value="{{ $specialization->id }}"
+							name="specializations[]" @checked(in_array($specialization->id, old('specializations', $doctor_specializations ?? [])))>
+						<label class="form-check-label" for="specialization">{!! $specialization->name !!}</label>
+					</div>
+				@endforeach
+			</div>
 
 			<div class="mb-3">
 				<label for="address" class="form-label">Indirizzo dottore:</label>

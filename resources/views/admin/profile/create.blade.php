@@ -30,8 +30,9 @@
 					{{-- token --}}
 
 					<div class="mb-3">
-						<label for="description" class="form-label">Descrizione</label>
-						<textarea class="form-control" id="description" name="description">{{ old('description') }}</textarea>
+						<label for="services" class="form-label">Servizi:</label>
+						<input type="text" class="form-control" id="services" name="services" placeholder="Inserisci servizi dottore"
+							required minlength="1" maxlength="100" value="{{ old('services') }}">
 					</div>
 
 					<div class="mb-3">

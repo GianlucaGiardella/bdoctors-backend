@@ -90,10 +90,12 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
+        $specializations = Specialization::all();
         $user_data = Auth::user();
         $profile = Auth::user()->profile;
+        $profile_specializations = $profile->specializations->pluck('id')->toArray();
 
-        return view('admin.profile.edit', compact('profile', 'user_data'));
+        return view('admin.profile.edit', compact('profile', 'specializations', 'user_data','profile_specializations'));
     }
 
     /**
@@ -135,11 +137,11 @@ class ProfileController extends Controller
     {
         $old_id = $profile->id;
 
-        if ($profile->image) {
-            Storage::delete($profile->image);
+        if ($profile->photo) {
+            Storage::delete($profile->photo);
         }
         $profile->delete();
 
-        return redirect()->route('admin.profile.show')->with('message', "Il $old_id Dottore è stato Cancellato");
+        return redirect()->route('admin.profile.show',compact('profile'))->with('message', "Il $old_id Profilo è stato Cancellato");
     }
 }

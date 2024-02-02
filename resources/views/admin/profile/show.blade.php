@@ -32,6 +32,18 @@
 							</p>
 
 							<p class="card-text">
+								<strong> Photo: </strong> <img src="{{ $profile->photo }}" alt="">
+							</p>
+
+							
+							<p class="card-text">
+								<strong> Specializzazioni: </strong>
+								@foreach ($profile->specializations as $specialization)
+									{!! $specialization->name !!}
+								@endforeach
+							</p>
+
+							<p class="card-text">
 								<strong> Indirizzo: </strong> {{ $profile->address }}
 							</p>
 
@@ -51,8 +63,14 @@
 					</section>
 				@else
 				<div class="container">
-					<h1 class="text-center">Non hai registrato il tuo profilo dottore</h1>
-					<a href="{{ route('admin.profile.create') }}" class="btn btn-primary w-100">Crea Progetto</a>
+					<div class="col-12">
+						<h1 class="text-center">Non hai registrato il tuo profilo</h1>
+
+					</div>
+					<div class="col-12">
+						<a href="{{ route('admin.profile.create') }}" class="btn btn-primary w-100">Registra Profilo</a>
+
+					</div>
 
 				</div>
 				@endif

@@ -25,7 +25,7 @@ class StoreProfileRequest extends FormRequest
     {
         return [
             'address' => 'max:200|string',
-            'services' => 'nullable|string',
+            'services' => 'max:200|string',
             'curriculum' => 'nullable|string',
             'photo' => 'image|nullable|mimes:jpg,png,jpeg',            
             'visible' => 'boolean',
