@@ -5,21 +5,20 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6">
 				{{-- @dump($profile) --}}
-				{{-- @if (isset($profile)) --}}
+				@if (isset($profile))
 
 					{{-- Edit --}}
 					<ul class="list-unstyled d-flex m-0 gap-1 justify-content-center">
-						{{-- <li><a href="{{ route('admin.profiles.edit', $profile) }}" class="btn btn-sm btn-warning">Modifica profilo dottore</a></li>
+						<li><a href="{{ route('admin.profile.edit', $profile) }}" class="btn btn-sm btn-warning">Modifica profilo dottore</a></li>
 						<li>
-							<form method="post" action="{{ route('admin.profiles.destroy', $profile) }}">
+							<form method="post" action="{{ route('admin.profile.destroy', $profile) }}">
 								@csrf
 								@method('delete')
 								<button type="submit" class="btn btn-sm btn-danger">
 									{{ __('Delete Profile') }}
 								</button>
 							</form>
-						</li> --}}
-						{{-- <li><a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#post-{{ $doctor->id }}">Delete</a> --}}</li>
+						</li>
 					</ul>
 					{{-- /Edit --}}
 
@@ -50,7 +49,7 @@
 						</div> --}}
 						</div>
 					</section>
-				{{-- @endif --}}
+				@endif
 			</div>
 		</div>
 	@endsection

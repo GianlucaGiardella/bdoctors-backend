@@ -26,8 +26,8 @@ Route::get('/dashboard', [ProfileController::class, 'show'])->middleware('auth')
 Route::middleware('auth')
     ->prefix('/admin')->name('admin.')
     ->group(function() {
-        Route::resource('admin/profiles', ProfileController::class);
-        Route::resource('profiles', ProfileController::class)->parameters(['profiles'=>'project:slug']);
+        Route::resource('profile', ProfileController::class);
+
 
     });
 // middleware per autenticati profilo user

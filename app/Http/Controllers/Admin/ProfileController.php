@@ -59,9 +59,12 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Profile $profile)
     {
-        //
+        $user_data = Auth::user();
+        $profile = Auth::user()->profile;
+
+        return view('admin.profile.edit', compact('profile', 'user_data'));
     }
 
     /**
