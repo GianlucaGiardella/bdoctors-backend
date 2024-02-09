@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserSponsorship extends Model
+class SponsorshipUser extends Model
 {
     use HasFactory;
 
@@ -16,5 +16,5 @@ class UserSponsorship extends Model
         'end_date',
     ];
 
-    protected $table = 'user_sponsorship';
+    protected $table = 'sponsorship_user';
 }
