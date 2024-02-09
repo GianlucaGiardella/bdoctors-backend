@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -11,15 +11,15 @@ class Message extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'profile_id',
         'email',
-        'first_name',
-        'last_name',
+        'name',
+        'surname',
         'text',
     ];
 
-    public function user()
+    public function profile()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Profile::class);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Vote;
+use App\Models\Profile;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -11,10 +11,9 @@ class Review extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'vote_id',
-        'first_name',
-        'last_name',
+        'profile_id',
+        'name',
+        'surname',
         'text',
     ];
 
