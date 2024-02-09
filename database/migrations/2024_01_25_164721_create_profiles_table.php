@@ -11,23 +11,16 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')
-            ->constrained()
-            ->cascadeOnDelete();
-            $table->string('name', 150)->nullable();
-            $table->string('surname',255)->nullable();
-            $table->string('address',255)->nullable(false);
-            $table->string('curriculum',255)->nullable();
-            $table->string('photo',255)->nullable();
-            $table->string('phone',20)->nullable();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string('name', 50)->nullable();
+            $table->string('surname', 50)->nullable();
+            $table->string('address', 255)->nullable(false);
+            $table->string('curriculum', 255)->nullable();
+            $table->string('photo', 255)->nullable();
+            $table->string('phone', 20)->nullable();
             $table->string('services')->nullable();
             $table->boolean('visible')->nullable()->unsigned();
-            
             $table->timestamps();
-
-
-
-            
         });
     }
 

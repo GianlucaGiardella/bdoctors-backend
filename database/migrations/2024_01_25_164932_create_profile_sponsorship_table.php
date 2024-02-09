@@ -6,33 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('profile_sponsorship', function (Blueprint $table) {
             $table->id();
-
-            $table->unsignedBigInteger('profile_id');
-            $table->foreign('profile_id')->references('id')->on('profiles')->constrained()
-                  ->cascadeOnDelete();
-
-            $table->unsignedBigInteger('sponsorship_id');
-            $table->foreign('sponsorship_id')->references('id')->on('sponsorships')->constrained()
-                  ->cascadeOnDelete(); 
-
+            $table->foreignId('profile_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('sponsorship_id')->constrained()->cascadeOnDelete();
+            $table->dateTime('start_date')->nullable();
+            $table->dateTime('end_date')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('profile_sponsorship');
