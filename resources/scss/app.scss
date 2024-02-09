@@ -1,5 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
 
+body {
+    height: 100vh;
+}
+
+.doctors-bg {
+    background-image: url('../img/doctors-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .preview {
     #file-image-preview {
         max-width: 17.75rem;
