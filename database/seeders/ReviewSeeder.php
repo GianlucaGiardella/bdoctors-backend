@@ -8,14 +8,8 @@ use Illuminate\Database\Seeder;
 
 class ReviewSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
-        
         $reviews = [
             [
                 'name' => 'Mario',
@@ -72,13 +66,11 @@ class ReviewSeeder extends Seeder
 
         foreach ($reviews as $review) {
             Review::create([
-                'profile_id' => rand(1,10),
-                'first_name' => $review['name'],
-                'last_name' => $review['surname'],
+                'profile_id' => rand(1, 10),
+                'name' => $review['name'],
+                'surname' => $review['surname'],
                 'text' => $review['text'],
             ]);
         }
-
-
     }
 }

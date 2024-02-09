@@ -13,29 +13,22 @@ use Illuminate\Database\Seeder;
 
 class ProfileSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run(Faker $faker, FakerIt $fakerit)
-    {
-        // $users = User::all()->pluck("id")->toArray();
+  public function run(Faker $faker, FakerIt $fakerit)
+  {
+    // $users = User::all()->pluck("id")->toArray();
 
-      for ($i=1; $i <= 11 ; $i++)
-      {
-        $profile = new Profile();
-        $profile->user_id = $i;
-        $profile->name = $faker->firstName($gender=null);
-        $profile->surname = $faker->lastName();
-        $profile->curriculum = $faker->text();
-        $profile->photo = $faker->imageUrl(480, 480, 'person', true);
-        $profile->phone = $faker->phoneNumber();
-        $profile->address = $fakerit->address();
-        $profile->services = $faker->text();
-        $profile->visible = $faker->boolean();
-        $profile->save();
-      
+    for ($i = 1; $i <= 11; $i++) {
+      $profile = new Profile();
+      $profile->user_id = $i;
+      $profile->name = $faker->firstName($gender = null);
+      $profile->surname = $faker->lastName();
+      $profile->curriculum = $faker->text();
+      $profile->photo = $faker->imageUrl(480, 480, 'person', true);
+      $profile->phone = $faker->phoneNumber();
+      $profile->address = $fakerit->address();
+      $profile->services = $faker->text();
+      $profile->visible = $faker->boolean();
+      $profile->save();
     }
-}
+  }
 }

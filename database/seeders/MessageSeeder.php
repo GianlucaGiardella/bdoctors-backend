@@ -8,86 +8,79 @@ use Illuminate\Database\Seeder;
 
 class MessageSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $profiles = [
             [
-                'nome' => 'Mario',
-                'cognome' => 'Rossi',
+                'name' => 'Mario',
+                'surname' => 'Rossi',
                 'mail' => 'mario.rossi@example.com',
-                'testo' => 'Specializzato in Cardiologia.',
+                'text' => 'Specializzato in Cardiologia.',
             ],
             [
-                'nome' => 'Laura',
-                'cognome' => 'Bianchi',
+                'name' => 'Laura',
+                'surname' => 'Bianchi',
                 'mail' => 'laura.bianchi@example.com',
-                'testo' => 'Esperta in Ortopedia.',
+                'text' => 'Esperta in Ortopedia.',
             ],
             [
-                'nome' => 'Giuseppe',
-                'cognome' => 'Verdi',
+                'name' => 'Giuseppe',
+                'surname' => 'Verdi',
                 'mail' => 'giuseppe.verdi@example.com',
-                'testo' => 'Ginecologo con anni di esperienza.',
+                'text' => 'Ginecologo con anni di esperienza.',
             ],
             [
-                'nome' => 'Roberta',
-                'cognome' => 'Russo',
+                'name' => 'Roberta',
+                'surname' => 'Russo',
                 'mail' => 'roberta.russo@example.com',
-                'testo' => 'Pediatra dedicata ai bambini.',
+                'text' => 'Pediatra dedicata ai bambini.',
             ],
             [
-                'nome' => 'Carlo',
-                'cognome' => 'Ferrari',
+                'name' => 'Carlo',
+                'surname' => 'Ferrari',
                 'mail' => 'carlo.ferrari@example.com',
-                'testo' => 'Specializzato in Dermatologia.',
+                'text' => 'Specializzato in Dermatologia.',
             ],
             [
-                'nome' => 'Elena',
-                'cognome' => 'Gallo',
+                'name' => 'Elena',
+                'surname' => 'Gallo',
                 'mail' => 'elena.gallo@example.com',
-                'testo' => 'Neurologa con focus su malattie del sistema nervoso.',
+                'text' => 'Neurologa con focus su malattie del sistema nervoso.',
             ],
             [
-                'nome' => 'Paolo',
-                'cognome' => 'Mancini',
+                'name' => 'Paolo',
+                'surname' => 'Mancini',
                 'mail' => 'paolo.mancini@example.com',
-                'testo' => 'Chirurgo esperto in interventi complessi.',
+                'text' => 'Chirurgo esperto in interventi complessi.',
             ],
             [
-                'nome' => 'Sara',
-                'cognome' => 'Ferraro',
+                'name' => 'Sara',
+                'surname' => 'Ferraro',
                 'mail' => 'sara.ferraro@example.com',
-                'testo' => 'Specializzata in Oncologia e terapie innovative.',
+                'text' => 'Specializzata in Oncologia e terapie innovative.',
             ],
             [
-                'nome' => 'Luca',
-                'cognome' => 'Ricci',
+                'name' => 'Luca',
+                'surname' => 'Ricci',
                 'mail' => 'luca.ricci@example.com',
-                'testo' => 'Oculista con attenzione alla salute degli occhi.',
+                'text' => 'Oculista con attenzione alla salute degli occhi.',
             ],
             [
-                'nome' => 'Anna',
-                'cognome' => 'Moro',
+                'name' => 'Anna',
+                'surname' => 'Moro',
                 'mail' => 'anna.moro@example.com',
-                'testo' => 'Psichiatra dedicata al benessere mentale.',
+                'text' => 'Psichiatra dedicata al benessere mentale.',
             ],
         ];
 
         foreach ($profiles as $profileData) {
             Message::create([
-                'profile_id' => rand(1,10),
-                'first_name' => $profileData['nome'],
-                'last_name' => $profileData['cognome'],
+                'profile_id' => rand(1, 10),
+                'name' => $profileData['name'],
+                'surname' => $profileData['surname'],
                 'email' => $profileData['mail'],
-                'text' => $profileData['testo'],
+                'text' => $profileData['text'],
             ]);
         }
-
-
     }
 }

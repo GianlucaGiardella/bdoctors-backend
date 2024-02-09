@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Schema;
 
 class SpecializationSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $specializations = [
@@ -33,10 +28,10 @@ class SpecializationSeeder extends Seeder
         // Specialization::truncate();
         // Schema::enableForeignKeyConstraints();
 
-        foreach ($specializations as $specialization){
+        foreach ($specializations as $specialization) {
             $newSpecialization = new Specialization();
             $newSpecialization->name = $specialization;
-        //     $newSpecialization->slug = Str::slug($newSpecialization->name);
+            //     $newSpecialization->slug = Str::slug($newSpecialization->name);
             $newSpecialization->save();
         }
     }
